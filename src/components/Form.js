@@ -1,10 +1,14 @@
 import React from "react";
 
 const Form = (props) => {
-
+  const {addTask}=props;
+  function handleSubmit(e) {
+    e.preventDefault();
+   addTask("Hello World!");
+  }
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2 className="label-wrapper">
           <label htmlFor="new-todo-input" className="label__lg">
             What needs to be done?
@@ -16,7 +20,6 @@ const Form = (props) => {
           className="input input__lg"
           name="text"
           autoComplete="off"
-          
         />
         <button type="submit" className="btn btn__primary btn__lg">
           Add
